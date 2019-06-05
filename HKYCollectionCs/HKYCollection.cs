@@ -9,7 +9,7 @@ namespace HKYCollectionCs
 {
     class HKYCollection
     {
-        private  string[] keyWords = { "韓國瑜" };
+        private  string[] keyWords = { "韓國瑜","韓流" };
         private string[] source = { "https://tw.news.yahoo.com/search?p=" };
         private List<NewsItem> newsList = new List<NewsItem>();
 
@@ -39,11 +39,13 @@ namespace HKYCollectionCs
         }
         public void cutHtml(string source)
         {
+            NewsItem ni = new NewsItem();
             if(new Regex("yahoo").IsMatch(source))
             {
                 //Yahoo格式
                 string urlHead = @"https://tw.news.yahoo.com";
             }
+
         }
     }
 

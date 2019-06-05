@@ -11,6 +11,7 @@ namespace HKYCollectionCs
 
             hc.search();
 
+            Console.WriteLine("done");
             Console.ReadKey(true);
         }
     }

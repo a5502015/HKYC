@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace HKYCollectionCs
 {
@@ -27,8 +28,21 @@ namespace HKYCollectionCs
                         // string responseBody = await client.GetStringAsync(uri);
 
                         Console.WriteLine(responseBody);
+
+                        using(StreamWriter sw = new StreamWriter(@".\news.html"))
+                        {
+                            sw.WriteLine(responseBody);
+                        }
                     }
                 }
+            }
+        }
+        public void cutHtml(string source)
+        {
+            if(new Regex("yahoo").IsMatch(source))
+            {
+                //Yahoo格式
+                string urlHead = @"https://tw.news.yahoo.com";
             }
         }
     }
@@ -36,6 +50,7 @@ namespace HKYCollectionCs
     class NewsItem
     {
         public string url { get; set; }
+        public string picUrl { get; set; }
         public string titles { get; set; }
         public string hashTag { get; set; }
     }
